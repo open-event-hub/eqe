@@ -5,7 +5,7 @@ canonifyurls = true
 
 [params]
   description = "Event-Centric Query Expansion in Web Search"
-  bannerImage = "/img/back.png"
+  bannerImage = "/eqe/img/back.png"
   logoImage = "/img/logo.png"
 
 [menu]
