@@ -1,0 +1,24 @@
+baseURL = "https://open-event-hub.github.io/eqe"
+languageCode = "en-us"
+title = "EQE"
+canonifyurls = true
+
+[params]
+  description = "Event-Centric Query Expansion in Web Search"
+  bannerImage = "/img/back.png"
+  logoImage = "/img/logo.png"
+
+[menu]
+  [[menu.main]]
+    name="title2eventphrase"
+    url="/title2eventphrase"
+    weight="2"
+
+  #[[menu.main]]
+    #name="Data Distribution"
+    #url="/data_distribution"
+    #weight="3"
+  #[[menu.main]]
+    #name="Hierarchical Event Type Schema"
+    #url="/hierarchical_event_type_schema"
+    #weight="4"

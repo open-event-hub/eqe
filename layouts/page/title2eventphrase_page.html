@@ -1,0 +1,83 @@
+{{ define "main" }}
+    <div class="row mt-5">
+      <div class="col-md-4 text-center">
+        <div class="card">
+          <div class="card-body">
+            <h2>What is Title2EventPhrase?</h2>
+            <p class="card-text">Title2EventPhrase is a open <code>Event Reformulation</code> dataset with 
+              large-scale human annotated Chinese title. Title2EventPhrase is a dataset that comprises 
+              over 41,000 <code>&lt;headline, event&gt;</code> pairs, with the headlines sourced from Chinese 
+                web pages and spanning 25 different topics. It is collected by researcher 
+              at QQ Browser Search.</p>
+            <p class="card-text">For more details, please refer to our ACL Industy 2022 paper:</p>
+            <a href="" class="btn btn-primary">(coming soon)</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h2>Citation</h2>
+            <p class="card-text">If you use Title2EventPhrase in your research, please cite our paper.</p>
+            <pre class="text-left">
+              <a  href="" class="btn btn-primary">coming soon</a>
+
+            </pre>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="card">
+          <div class="card-body">
+            <h2>Quick Start</h2>
+            <p class="card-text">Title2EventPhrase is distributed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="card-link">CC BY-SA 4.0 License</a>. The dataset can be obtained below:</p>
+            <a href="https://pan.baidu.com/s/14v0OC2unLC-_BgKgzUm7WQ?pwd=pq66" class="btn btn-primary mb-2">Baidu Netdisk</a><br/>
+            <a href="https://drive.google.com/drive/folders/1LyGNgn-tf-1shb9oBproBGogHoVQXqOp?usp=sharing" class="btn btn-primary">Google Drive</a>
+            <p class="card-text">For the baseline codes, please refer to our github repository.</p>
+            <a href="https://github.com/open-event-hub/title2eventphrase_baselines" class="btn btn-primary">baseline repo</a>
+            <!--p class="card-text">Once you have finished your model, you can submit your predictions to our competition hosted on CodaLab.</p>
+            <a href="https://competitions.codalab.org/competitions/27320" class="btn btn-primary">CodaLab</a-->
+            <p class="card-text">If you want your results to be appeared on the official leaderboard here, please read the guideline following.</p>
+            <a href="https://github.com/open-event-hub/eqe" class="btn btn-primary">Leaderboard Guideline</a>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-header text-center">Leaderboard</div>
+          <div class="card-body">
+            <table class="table text-center">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" >Methods</th>
+                  <th scope="col" >Rouge-L</th>
+                  <th scope="col" >BLEU</th>
+                  <th scope="col" >BERTScore</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ range .Site.Data.exp_data }}
+                <tr>
+                  <th scope="row">{{ .Methods }}<br/></th>
+                  
+                  <td>{{ .RougeL }}</td>
+                  <td>{{ .BLEU }}</td>
+                  <td>{{ .BERTScore }}</td>
+                </tr>
+                {{ end }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+{{ end }}
+
+{{ define "extrajs" }}
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+{{ end }}

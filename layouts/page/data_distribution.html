@@ -1,0 +1,165 @@
+{{ define "main" }}
+    <div class="row mt-5">
+      <div class="col-md-4 text-center">
+        <div class="card">
+          <div class="card-body">
+            <h2>What is Title2Event?</h2>
+            <p class="card-text">Title2Event is a open event extraction dataset with large-scale human annotated Chinese title. Title2Event contains more than
+42,000 news titles in 34 topics collected from
+Chinese web pages. It is collected by researcher at Harbin Institute of Technology and QQ Browser Search.</p>
+            <p class="card-text">For more details, please refer to our EMNLP 2022 paper:</p>
+            <a href="https://aclanthology.org/2022.emnlp-main.437/" class="btn btn-primary">(deng-etal-2022-title2event)</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-body">
+            <h2>Quick Start</h2>
+            <p class="card-text">Title2Event is distributed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="card-link">CC BY-SA 4.0 License</a>. The dataset can be obtained below:</p>
+            <a href="https://pan.baidu.com/s/14v0OC2unLC-_BgKgzUm7WQ?pwd=pq66" class="btn btn-primary mb-2">Baidu Netdisk</a><br/>
+            <a href="https://drive.google.com/drive/folders/1LyGNgn-tf-1shb9oBproBGogHoVQXqOp?usp=sharing" class="btn btn-primary">Google Drive</a>
+            <p class="card-text">For the baseline codes, please refer to our github repository.</p>
+            <a href="https://github.com/open-event-hub/title2event_baselines" class="btn btn-primary">baseline repo</a>
+            <!--p class="card-text">Once you have finished your model, you can submit your predictions to our competition hosted on CodaLab.</p>
+            <a href="https://competitions.codalab.org/competitions/27320" class="btn btn-primary">CodaLab</a-->
+            <p class="card-text">If you want your results to be appeared on the official leaderboard here, please read the guideline following.</p>
+            <a href="https://github.com/open-event-hub/title2event" class="btn btn-primary">Leaderboard Guideline</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h2>Citation</h2>
+            <p class="card-text">If you use Title2Event in your research, please cite our paper.</p>
+            <pre class="text-left">
+@inproceedings{deng-etal-2022-title2event,
+    title = "{T}itle2{E}vent: Benchmarking Open Event Extraction with a Large-scale {C}hinese Title Dataset",
+    author = "Deng, Haolin  and
+      Zhang, Yanan  and
+      Zhang, Yangfan  and
+      Ying, Wangyang  and
+      Yu, Changlong  and
+      Gao, Jun  and
+      Wang, Wei  and
+      Bai, Xiaoling  and
+      Yang, Nan  and
+      Ma, Jin  and
+      Chen, Xiang  and
+      Zhou, Tianhua",
+    booktitle = "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing",
+    month = dec,
+    year = "2022",
+    address = "Abu Dhabi, United Arab Emirates",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.emnlp-main.437",
+    pages = "6511--6524",
+    abstract = "Event extraction (EE) is crucial to downstream tasks such as new aggregation and event knowledge graph construction. Most existing EE datasets manually define fixed event types and design specific schema for each of them, failing to cover diverse events emerging from the online text. Moreover, news titles, an important source of event mentions, have not gained enough attention in current EE research. In this paper, we present Title2Event, a large-scale sentence-level dataset benchmarking Open Event Extraction without restricting event types. Title2Event contains more than 42,000 news titles in 34 topics collected from Chinese web pages. To the best of our knowledge, it is currently the largest manually annotated Chinese dataset for open event extraction. We further conduct experiments on Title2Event with different models and show that the characteristics of titles make it challenging for event extraction, addressing the significance of advanced study on this problem. The dataset and baseline codes are available at https://open-event-hub.github.io/title2event.",
+}
+
+			</pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header text-center">Leaderboard</div>
+          <div class="card-body">
+            <table class="table text-center">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" rowspan="2">Methods</th>
+                  <th scope="col" colspan="3">Trigger Ex.</th>
+                  <th scope="col" colspan="3">Argument Ex.</th>
+                  <th scope="col" colspan="3">Triplet Ex.</th>
+                </tr>
+                <tr>
+                  <th scope="col">Precission</th>
+                  <th scope="col">Recall</th>
+                  <th scope="col">F1</th>
+                  <th scope="col">Precission</th>
+                  <th scope="col">Recall</th>
+                  <th scope="col">F1</th>
+                  <th scope="col">Precission</th>
+                  <th scope="col">Recall</th>
+                  <th scope="col">F1</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ range .Site.Data.leaderboard }}
+                <tr>
+                  <th scope="row">{{ .Methods }}<br/></th>
+                  
+                  <td>{{ .Trigger_P }}</td>
+                  <td>{{ .Trigger_R }}</td>
+                  <td>{{ .Trigger_F1 }}</td>
+                  <td>{{ .Argument_P }}</td>
+                  <td>{{ .Argument_R }}</td>
+                  <td>{{ .Argument_F1 }}</td>
+                  <td>{{ .Triplet_P }}</td>
+                  <td>{{ .Triplet_R }}</td>
+                  <td>{{ .Triplet_F1 }}</td>
+                </tr>
+                {{ end }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--div class="card">
+          <div class="card-header text-center">Leaderboard</div>
+          <div class="card-body">
+            <table class="table text-center">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" rowspan="2">Rank</th>
+                  <th scope="col" rowspan="2">Model</th>
+                  <th scope="col" colspan="3">Micro</th>
+                  <th scope="col" colspan="3">Macro</th>
+                </tr>
+                <tr>
+                  <th scope="col">F1</th>
+                  <th scope="col">Precission</th>
+                  <th scope="col">Recall</th>
+                  <th scope="col">F1</th>
+                  <th scope="col">Precission</th>
+                  <th scope="col">Recall</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ range .Site.Data.leaderboard }}
+                <tr>
+                  <th scope="row">{{ .rank }}<br/><span class="badge badge-light">{{ .date }}</span></th>
+                  <td>{{ .Model }} 
+                    <span class="badge badge-primary" data-toggle="tooltip" data-placement="right" title="Average score over {{ .run_number }} runs.">10</span><br/>
+                    {{ .affiliation }}<br/>
+                    {{ if .paper_link }}
+                      [<a href="{{ .paper_link }}" target="_blank">paper</a>]
+                    {{ end }}
+                    {{ if .code_link }}
+                      [<a href="{{ .code_link }}" target="_blank">code</a>]
+                    {{ end }}
+                  </td>
+                  <td>{{ .Micro_F1 }}</td>
+                  <td>{{ .Micro_P }}</td>
+                  <td>{{ .Micro_R }}</td>
+                  <td>{{ .Macro_F1 }}</td>
+                  <td>{{ .Macro_P }}</td>
+                  <td>{{ .Macro_R }}</td>
+                </tr>
+                {{ end }}
+              </tbody>
+            </table>
+          </div>
+        </div-->
+      </div>
+      
+      
+
+    </div>
+{{ end }}
+
+{{ define "extrajs" }}
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+{{ end }}
