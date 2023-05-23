@@ -1,4 +1,4 @@
-# Title2Event Homepage
+# EQE Homepage
 
 The website is hosted on Github. The url is <https://open-event-hub.github.io/eqe>.
 
